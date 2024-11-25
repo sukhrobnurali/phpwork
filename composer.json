@@ -10,6 +10,7 @@
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.2",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.0",
         "laravel/breeze": "^2.2",
