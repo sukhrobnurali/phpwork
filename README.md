@@ -32,6 +32,10 @@ Bu uchun sizda docker va docker-compose o'rnatilgan bo'lishi lozim, va Docker de
 - git clone git@github.com:SukhrobNuraliev/phpwork.git
 - cd phpwork
 - make init
+- cp .env.example .env
+- make project-key-generate
+- cp database/test-database.sqlite database.sqlite
+- make project-migrate
 
 phpstan va Laravel pint ni zapusk qilish uchun
 
@@ -43,7 +47,14 @@ phpstan va Laravel pint ni zapusk qilish uchun
 - git clone git@github.com:SukhrobNuraliev/phpwork.git
 - cd phpwork
 - composer install
+- cp .env.example .env
+- php artisan key:generate
+- cp database/test-database.sqlite database.sqlite
+- php artisan migrate
 
+phpstan va Laravel pint ni zapusk qilish uchun
+ - composer cs-fix
+ - composer larastan
 
 ### Premium Partners
 

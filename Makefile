@@ -30,6 +30,8 @@ project-composer-update:
 
 project-migrate:
 	make docker-exec COMMAND="php artisan migrate"
+project-key-generate:
+	make docker-exec COMMAND="php artisan key:generate"
 laravel:
 	make docker-exec COMMAND="php -d memory_limit=-1 artisan ${name}"
 
