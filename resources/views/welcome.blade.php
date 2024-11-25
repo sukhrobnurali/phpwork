@@ -14,6 +14,7 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
+
 </head>
 <body class="">
 
@@ -25,10 +26,93 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button"
+            <button type="button" data-modal-target="add-modal" data-modal-toggle="add-modal"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Get started
+                Qo'shish
             </button>
+
+            <div id="add-modal" tabindex="-1" aria-hidden="true"
+                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+
+                <!-- Modal overlay -->
+                <div class="fixed inset-0 bg-black opacity-50"></div>
+
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                Create New Product
+                            </h3>
+                            <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-toggle="add-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                     viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <form class="p-4 md:p-5">
+                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                <div class="col-span-2">
+                                    <label for="name"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name
+                                    </label>
+                                    <input type="text" name="name" id="name"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                           placeholder="Type product name" required="">
+                                </div>
+                                <div class="col-span-2 sm:col-span-1">
+                                    <label for="price"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price
+                                    </label>
+                                    <input type="number" name="price" id="price"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                           placeholder="$2999" required="">
+                                </div>
+                                <div class="col-span-2 sm:col-span-1">
+                                    <label for="category"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category
+                                    </label>
+                                    <select id="category"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                        <option selected="">Select category</option>
+                                        <option value="TV">TV/Monitors</option>
+                                        <option value="PC">PC</option>
+                                        <option value="GA">Gaming/Console</option>
+                                        <option value="PH">Phones</option>
+                                    </select>
+                                </div>
+                                <div class="col-span-2">
+                                    <label for="description"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+                                        Description
+                                    </label>
+                                    <textarea id="description" rows="4"
+                                              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                              placeholder="Write product description here"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                                Add new product
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -69,7 +153,7 @@
             </svg>
         </a>
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            Companies that use PHP
+            PHP Ishlatadigan Korxonalar
         </h1>
         <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Here at
             Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive
@@ -124,94 +208,55 @@
         <h2 class="text-2xl font-bold mb-6 text-center">Companies</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex gap-3">
-                    <img src="/assets/img/as.png" alt="" class="h-20 object-cover mb-4 rounded-md">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                            Asakabank
-                        </h5>
-                    </a>
+            @foreach(range(1,10) as $company)
+                <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="flex gap-3">
+                        <img src="/assets/img/as.png" alt="" class="h-20 object-cover mb-4 rounded-md">
+                        <div>
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                    Asakabank
+                                </h5>
+                            </a>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-3 py-1 rounded">Bank</span>
+                        </div>
+
+                    </div>
+                    {{--<p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
+                        on how to certify for your weekly benefits:
+                    </p>--}}
+                    <hr class="my-2">
+                    <div class="flex gap-2 items-start">
+                        <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                            Vebsayt
+                            <svg class="w-[20px] h-[20px]" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                 viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/>
+                            </svg>
+                        </a>
+                        <a href="">
+                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                            <img class="w-6" src="/assets/img/hh.svg" alt="" style="filter: grayscale(100%);">
+                        </span>
+                        </a>
+                        <a href="">
+                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                            <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                              <path fill-rule="evenodd"
+                                    d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
+                                    clip-rule="evenodd"/>
+                              <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
+                            </svg>
+                        </span>
+                        </a>
+                    </div>
                 </div>
-                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
-                    on how to certify for your weekly benefits:
-                </p>
-                <hr class="my-2">
-                <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                    See our guideline
-                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex gap-3">
-                    <img src="/assets/img/b.png" alt="" class="h-20 object-cover mb-4 rounded-md">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                            Asakabank
-                        </h5>
-                    </a>
-                </div>
-                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
-                    on how to certify for your weekly benefits:
-                </p>
-                <hr class="my-2">
-                <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                    See our guideline
-                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex gap-3">
-                    <img src="/assets/img/c.jpg" alt="" class="h-20 object-cover mb-4 rounded-md">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                            Asakabank
-                        </h5>
-                    </a>
-                </div>
-                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
-                    on how to certify for your weekly benefits:
-                </p>
-                <hr class="my-2">
-                <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                    See our guideline
-                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex gap-3">
-                    <img src="/assets/img/as.png" alt="" class="h-20 object-cover mb-4 rounded-md">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                            Asakabank
-                        </h5>
-                    </a>
-                </div>
-                <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
-                    on how to certify for your weekly benefits:
-                </p>
-                <hr class="my-2">
-                <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                    See our guideline
-                    <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
-                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-                    </svg>
-                </a>
-            </div>
+            @endforeach
 
 
         </div>
@@ -813,6 +858,9 @@
         </span>
     </div>
 </footer>
+
+
+
 
 
 </body>
