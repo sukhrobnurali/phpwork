@@ -7,31 +7,43 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Loyiha haqida
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Bu loyiha orqali siz PHP ishlatadigan kompaniyalarni bir joyda topishingiz mumkin. Ularning:
+Saytlari 🌐
+Ish imkoniyatlari (hh.uz havolasi) 💼
+LinkedIn profillari va boshqa ma’lumotlari 🛠️
+👉 Nega bu loyiha ochiq manbali?
+Men vaqt yetishmasligi tufayli loyihani yakunlay olmayapman, shuning uchun uni ochiq manbali qilib, barchani hamkorlikka taklif qilmoqchiman. Bu loyiha birgalikda rivojlanadi va yanada kuchli bo‘ladi! 💪
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- GitHub: https://github.com/SukhrobNuraliev/ph...
+- Trello: https://trello.com/b/uGROFkgt/php-work
+- Website: https://phpwork.uz/ (https://phpwork.sukhrob.uz/)
+- Telegram Guruh: https://t.me/phpwork_uz_collab
+- Google Sheet: https://docs.google.com/spreadsheets/...
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Loyihani o'rnatish
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Docker orqali ishlash
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Bu uchun sizda docker va docker-compose o'rnatilgan bo'lishi lozim, va Docker desctop container lar bilan ishlash uchun
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- git clone git@github.com:SukhrobNuraliev/phpwork.git
+- cd phpwork
+- make init
 
-## Laravel Sponsors
+phpstan va Laravel pint ni zapusk qilish uchun
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- make fix
+
+
+### Local development
+                  
+- git clone git@github.com:SukhrobNuraliev/phpwork.git
+- cd phpwork
+- composer install
+
 
 ### Premium Partners
 

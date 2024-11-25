@@ -1,0 +1,44 @@
+services:
+    app:
+        build:
+            args:
+                user: sammy
+                uid: 1000
+            context: ./
+            dockerfile: ./docker/development/php/Dockerfile
+        image: phpwork_app
+        container_name: phpwork_core_app
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        networks:
+            - phpwork_core
+
+
+    nginx:
+        image: nginx:alpine
+        container_name: phpwork_nginx
+        restart: unless-stopped
+        ports:
+            - 9080:80
+        volumes:
+            - ./:/var/www
+            - ./docker/development/nginx/conf.d:/etc/nginx/conf.d/
+        networks:
+            - phpwork_core
+
+    redis:
+        image: redis:latest
+        container_name: phpwork_redis
+        command: redis-server
+        volumes:
+            - ./docker/my-redis:/var/lib/redis
+        ports:
+            - 6379:6379
+        networks:
+            - phpwork_core
+
+networks:
+    phpwork_core:
+        driver: bridge
