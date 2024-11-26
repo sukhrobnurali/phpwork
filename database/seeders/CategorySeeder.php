@@ -58,11 +58,10 @@ class CategorySeeder extends Seeder
         foreach ($companies as $type => $translate) {
             $category = new Category;
             $category->type = $type;
-            $category->translates = json_encode($translate);
+            $category->translates = $translate;
             $category->getQualifiedCreatedAtColumn();
             $category->getQualifiedUpdatedAtColumn();
-            $insertCompanies[] = $category->toArray();
+            $category->save();
         }
-        Category::query()->insert($insertCompanies);
     }
 }

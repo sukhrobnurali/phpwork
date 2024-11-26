@@ -70,6 +70,31 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
+ * @property string $web_site_url
+ * @property string $desc
+ * @property int $category_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereDesc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|CompanyRequest whereWebSiteUrl($value)
+ */
+	class CompanyRequest extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password

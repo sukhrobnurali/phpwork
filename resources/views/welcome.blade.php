@@ -41,7 +41,8 @@
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <!-- Modal header -->
-                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                        <div
+                            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                 Create New Product
                             </h3>
@@ -57,11 +58,12 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form class="p-4 md:p-5">
+                        <form class="p-4 md:p-5" method="POST" action="{{url('store-request')}}">
+                            @csrf
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 <div class="col-span-2">
                                     <label for="name"
-                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.name') }}
                                     </label>
                                     <input type="text" name="name" id="name"
                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -69,44 +71,53 @@
                                 </div>
                                 <div class="col-span-2 sm:col-span-1">
                                     <label for="price"
-                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.web_site_url') }}
                                     </label>
-                                    <input type="number" name="price" id="price"
+                                    <input type="text" name="web_site_url" id="price"
                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                           placeholder="$2999" required="">
+                                           placeholder="https://phpwork.uz/" required="">
                                 </div>
                                 <div class="col-span-2 sm:col-span-1">
                                     <label for="category"
-                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.category') }}
                                     </label>
                                     <select id="category"
+                                            name="category_id"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                        <option selected="">Select category</option>
-                                        <option value="TV">TV/Monitors</option>
-                                        <option value="PC">PC</option>
-                                        <option value="GA">Gaming/Console</option>
-                                        <option value="PH">Phones</option>
+                                        @foreach($categories as $category)
+                                            <option
+                                                value={{ $category->id }}>{{ $category->translates[App::currentLocale()] }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-span-2">
                                     <label for="description"
-                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
-                                        Description
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> {{ __('messages.Product Description') }}
                                     </label>
                                     <textarea id="description" rows="4"
+                                              name="desc"
                                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                               placeholder="Write product description here"></textarea>
                                 </div>
                             </div>
                             <button type="submit"
-                                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    class="text-white
+                                    inline-flex
+                                    items-center
+                                    bg-blue-700
+                                    hover:bg-blue-800
+                                     focus:ring-4
+                                     focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                                     text-sm px-5 py-2.5 text-center dark:bg-blue-600
+                                     dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+
                                 <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                           d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                           clip-rule="evenodd"></path>
                                 </svg>
-                                Add new product
+                                So'rov yuborish
                             </button>
                         </form>
                     </div>
@@ -125,7 +136,7 @@
                 <li>
                     <a href="#"
                        class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                       Malumot
+                        Malumot
                     </a>
                 </li>
                 <li>
@@ -145,7 +156,8 @@
            class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
            role="alert">
             <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">Yangi</span>
-            <span class="text-sm font-medium">PHP ish o'rinlari va loyihalari yangilandi! Hoziroq tekshirib ko'ring.</span>
+            <span
+                class="text-sm font-medium">PHP ish o'rinlari va loyihalari yangilandi! Hoziroq tekshirib ko'ring.</span>
             <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                       d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -156,12 +168,13 @@
             PHP Ishlatadigan Korxonalar
         </h1>
         <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-            PHP tili bugungi kunda ko'plab muvaffaqiyatli korxonalarning asosiy vositasi bo'lib, ularning veb-ilovalarini yaratishda katta rol o'ynamoqda.
+            PHP tili bugungi kunda ko'plab muvaffaqiyatli korxonalarning asosiy vositasi bo'lib, ularning
+            veb-ilovalarini yaratishda katta rol o'ynamoqda.
         </p>
         <div class="flex flex-col mb-8 lg:mb-11 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="#"
                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-               Ko'proq bilish
+                Ko'proq bilish
                 <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -173,7 +186,8 @@
                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                 <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+                    <path
+                        d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
                 </svg>
                 Watch video
             </a>
@@ -215,14 +229,16 @@
             @foreach(range(1,10) as $company)
                 <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition">
                     <div class="flex gap-3">
-                        <img src="/assets/img/{{ \Illuminate\Support\Arr::random($logos) }}" alt="" class="h-20 object-cover mb-4 rounded-md">
+                        <img src="/assets/img/{{ \Illuminate\Support\Arr::random($logos) }}" alt=""
+                             class="h-20 object-cover mb-4 rounded-md">
                         <div>
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
                                     {{ \Illuminate\Support\Arr::random($sampleCompanies) }}
                                 </h5>
                             </a>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-3 py-1 rounded">Bank</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-3 py-1 rounded">Bank</span>
                         </div>
 
                     </div>
@@ -242,12 +258,14 @@
                             </svg>
                         </a>
                         <a href="">
-                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                        <span
+                            class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
                             <img class="w-6" src="/assets/img/hh.svg" alt="" style="filter: grayscale(100%);">
                         </span>
                         </a>
                         <a href="">
-                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                        <span
+                            class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
                             <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
                                  xmlns="http://www.w3.org/2000/svg"
                                  width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -266,7 +284,6 @@
         </div>
     </div>
 </section>
-
 
 
 <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-16 mt-9">
@@ -344,11 +361,11 @@
                 <svg class="me-2 h-4 w-4 shrink-0 text-gray-900 dark:text-white" aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 12c.263 0 .524-.06.767-.175a2 2 0 0 0 .65-.491c.186-.21.333-.46.433-.734.1-.274.15-.568.15-.864a2.4 2.4 0 0 0 .586 1.591c.375.422.884.659 1.414.659.53 0 1.04-.237 1.414-.659A2.4 2.4 0 0 0 12 9.736a2.4 2.4 0 0 0 .586 1.591c.375.422.884.659 1.414.659.53 0 1.04-.237 1.414-.659A2.4 2.4 0 0 0 16 9.736c0 .295.052.588.152.861s.248.521.434.73a2 2 0 0 0 .649.488 1.809 1.809 0 0 0 1.53 0 2.03 2.03 0 0 0 .65-.488c.185-.209.332-.457.433-.73.1-.273.152-.566.152-.861 0-.974-1.108-3.85-1.618-5.121A.983.983 0 0 0 17.466 4H6.456a.986.986 0 0 0-.93.645C5.045 5.962 4 8.905 4 9.736c.023.59.241 1.148.611 1.567.37.418.865.667 1.389.697Zm0 0c.328 0 .651-.091.94-.266A2.1 2.1 0 0 0 7.66 11h.681a2.1 2.1 0 0 0 .718.734c.29.175.613.266.942.266.328 0 .651-.091.94-.266.29-.174.537-.427.719-.734h.681a2.1 2.1 0 0 0 .719.734c.289.175.612.266.94.266.329 0 .652-.091.942-.266.29-.174.536-.427.718-.734h.681c.183.307.43.56.719.734.29.174.613.266.941.266a1.819 1.819 0 0 0 1.06-.351M6 12a1.766 1.766 0 0 1-1.163-.476M5 12v7a1 1 0 0 0 1 1h2v-5h3v5h7a1 1 0 0 0 1-1v-7m-5 3v2h2v-2h-2Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 12c.263 0 .524-.06.767-.175a2 2 0 0 0 .65-.491c.186-.21.333-.46.433-.734.1-.274.15-.568.15-.864a2.4 2.4 0 0 0 .586 1.591c.375.422.884.659 1.414.659.53 0 1.04-.237 1.414-.659A2.4 2.4 0 0 0 12 9.736a2.4 2.4 0 0 0 .586 1.591c.375.422.884.659 1.414.659.53 0 1.04-.237 1.414-.659A2.4 2.4 0 0 0 16 9.736c0 .295.052.588.152.861s.248.521.434.73a2 2 0 0 0 .649.488 1.809 1.809 0 0 0 1.53 0 2.03 2.03 0 0 0 .65-.488c.185-.209.332-.457.433-.73.1-.273.152-.566.152-.861 0-.974-1.108-3.85-1.618-5.121A.983.983 0 0 0 17.466 4H6.456a.986.986 0 0 0-.93.645C5.045 5.962 4 8.905 4 9.736c.023.59.241 1.148.611 1.567.37.418.865.667 1.389.697Zm0 0c.328 0 .651-.091.94-.266A2.1 2.1 0 0 0 7.66 11h.681a2.1 2.1 0 0 0 .718.734c.29.175.613.266.942.266.328 0 .651-.091.94-.266.29-.174.537-.427.719-.734h.681a2.1 2.1 0 0 0 .719.734c.289.175.612.266.94.266.329 0 .652-.091.942-.266.29-.174.536-.427.718-.734h.681c.183.307.43.56.719.734.29.174.613.266.941.266a1.819 1.819 0 0 0 1.06-.351M6 12a1.766 1.766 0 0 1-1.163-.476M5 12v7a1 1 0 0 0 1 1h2v-5h3v5h7a1 1 0 0 0 1-1v-7m-5 3v2h2v-2h-2Z"
                     ></path>
                 </svg>
                 <span class="text-sm font-medium text-gray-900 dark:text-white">Oziq-ovqat &amp; Baqqollik</span>
@@ -423,11 +440,11 @@
                 <svg class="me-2 h-4 w-4 shrink-0 text-gray-900 dark:text-white" aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M21 12a28.076 28.076 0 0 1-1.091 9M7.231 4.37a8.994 8.994 0 0 1 12.88 3.73M2.958 15S3 14.577 3 12a8.949 8.949 0 0 1 1.735-5.307m12.84 3.088A5.98 5.98 0 0 1 18 12a30 30 0 0 1-.464 6.232M6 12a6 6 0 0 1 9.352-4.974M4 21a5.964 5.964 0 0 1 1.01-3.328 5.15 5.15 0 0 0 .786-1.926m8.66 2.486a13.96 13.96 0 0 1-.962 2.683M7.5 19.336C9 17.092 9 14.845 9 12a3 3 0 1 1 6 0c0 .749 0 1.521-.031 2.311M12 12c0 3 0 6-2 9"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a28.076 28.076 0 0 1-1.091 9M7.231 4.37a8.994 8.994 0 0 1 12.88 3.73M2.958 15S3 14.577 3 12a8.949 8.949 0 0 1 1.735-5.307m12.84 3.088A5.98 5.98 0 0 1 18 12a30 30 0 0 1-.464 6.232M6 12a6 6 0 0 1 9.352-4.974M4 21a5.964 5.964 0 0 1 1.01-3.328 5.15 5.15 0 0 0 .786-1.926m8.66 2.486a13.96 13.96 0 0 1-.962 2.683M7.5 19.336C9 17.092 9 14.845 9 12a3 3 0 1 1 6 0c0 .749 0 1.521-.031 2.311M12 12c0 3 0 6-2 9"
                     />
                 </svg>
                 <span class="text-sm font-medium text-gray-900 dark:text-white">Xavfsizlik  & Wi-Fi</span>

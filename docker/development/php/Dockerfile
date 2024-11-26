@@ -25,7 +25,9 @@ RUN apt-get update && apt-get install -y \
             --with-freetype \
             --with-jpeg \
     && docker-php-ext-install gd \
-    && docker-php-ext-install pdo_sqlite
+    && docker-php-ext-install pdo_sqlite \
+    && docker-php-ext-install mysqli \
+    && docker-php-ext-install pdo pdo_mysql
 
 
 # Install Node.js (v18.x as an example) and npm
@@ -52,9 +54,6 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 USER $user
-
-# Install npm dependencies
-RUN npm install
 
 ## Start PHP FPM
 #CMD ["php-fpm"]

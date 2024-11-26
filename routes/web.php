@@ -1,11 +1,17 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CompanyRequest\CompanyRequestController;
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::all();
+
+    return view('welcome', compact(['categories']));
 });
+
+Route::post('store-request', [CompanyRequestController::class, 'storeCompanyRequest']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
