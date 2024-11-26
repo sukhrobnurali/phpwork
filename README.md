@@ -18,11 +18,6 @@ phpwork.uz — PHP dasturlash tili bo'yicha ish o'rinlarini topishga yordam beru
 
 Ushbu loyiha GitHub'da open source sifatida mavjud va siz o'z kompyuteringizda ishlatishingiz yoki o'zgartirishingiz mumkin.
 
-### Talablar
-
-- PHP 8.0 yoki undan yuqori versiya
-- Apache yoki Nginx web-serveri
-- MySQL yoki boshqa SQL bazasi
 
 ### O'rnatish qadamlar
 

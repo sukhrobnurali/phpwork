@@ -9,11 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('company_technology', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
+            $table->foreignId('technology_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -21,8 +22,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('company_technology');
     }
 };
