@@ -16,6 +16,8 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $type
+ * @property array|null $translates
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Company> $companies
@@ -25,6 +27,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category query()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereTranslates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereUpdatedAt($value)
  */
 	class Category extends \Eloquent {}
