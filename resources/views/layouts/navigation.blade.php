@@ -22,6 +22,12 @@
                         {{ __('Companies') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('companies.inactive')" :active="request()->routeIs('companies.inactive')">
+                        {{ __('Inactive Companies') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

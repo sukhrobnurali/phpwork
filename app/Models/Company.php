@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Company extends Model
 {
@@ -17,13 +18,8 @@ class Company extends Model
         'status'
     ];
 
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function technologies()
-    {
-        return $this->belongsToMany(Technology::class, 'company_technology');
     }
 }
