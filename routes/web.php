@@ -9,7 +9,3 @@ use Illuminate\Support\Facades\Route;
 Route::post('/companies/request', [CompanyController::class, 'companyRequests'])->name('companies.request');
 
 Route::get('/', [LayoutController::class,'welcome']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
