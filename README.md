@@ -1,12 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# phpwork.uz
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**phpwork.uz** — PHP dasturlash tili bo'yicha ish o'rinlarini topish uchun platforma. Bu saytda PHP dasturchilari uchun turli vakansiyalar, ish joylari va freelans imkoniyatlari mavjud. Biz PHP bo'yicha tajribali va yangi boshlovchi dasturchilarni ishga joylashtirishga yordam beramiz.
 
+<<<<<<< HEAD
+## Loyihaning maqsadi
+
+phpwork.uz — PHP dasturlash tili bo'yicha ish o'rinlarini topishga yordam beruvchi onlayn platformadir. Sayt foydalanuvchilari PHP dasturchilari uchun vakansiyalarni qidirish va ariza berish imkoniyatiga ega. Loyihaning maqsadi PHP dasturchilarini ish bilan ta'minlash va ish beruvchilarni malakali mutaxassislar bilan bog'lashdir.
+
+## Xususiyatlar
+
+- **Vakansiyalar ro'yxati**: PHP dasturlash tili bo'yicha mavjud ish o'rinlari va freelancerlik imkoniyatlari.
+- **Qidiruv tizimi**: PHP vakansiyalarini sanoat, joylashuv va boshqa mezonlarga qarab izlash.
+- **Foydalanuvchi ro'yxatdan o'tishi**: Ish izlovchilar va ish beruvchilar uchun ro'yxatdan o'tish imkoniyati.
+- **Ariza yuborish**: PHP vakansiyalariga onlayn ariza yuborish.
+- **Profil yaratish**: Foydalanuvchilar uchun shaxsiy profil yaratish va ish izlovchilariga o'z malakalarini ko'rsatish imkoniyati.
+
+## O'rnatish
+
+Ushbu loyiha GitHub'da open source sifatida mavjud va siz o'z kompyuteringizda ishlatishingiz yoki o'zgartirishingiz mumkin.
+
+
+### O'rnatish qadamlar
+
+1. **Loyihani klonlash**:
+   GitHub reposini klonlash uchun quyidagi buyruqni bajarishingiz mumkin:
+
+   ```bash
+   git clone https://github.com/SukhrobNuraliev/phpwork.git
+=======
 ## Loyiha haqida
 
 Bu loyiha orqali siz PHP ishlatadigan kompaniyalarni bir joyda topishingiz mumkin. Ularning:
@@ -55,3 +76,4 @@ phpstan va Laravel pint ni zapusk qilish uchun
 phpstan va Laravel pint ni zapusk qilish uchun
  - composer cs-fix
  - composer larastan
+>>>>>>> a97f15daf293c6625bc409749cf784fa9404cddb

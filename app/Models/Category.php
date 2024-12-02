@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Category extends Model
 {
     protected $guarded = [];
+    protected $fillable = ['name'];
 
     protected $casts = [
         'translates' => 'array',
