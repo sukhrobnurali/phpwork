@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Builder;
 
 class Company extends Model
 {
@@ -16,7 +15,7 @@ class Company extends Model
         'website_url',
         'hh_url',
         'linkedin_url',
-        'status'
+        'status',
     ];
 
     public function category(): BelongsTo

@@ -15,7 +15,7 @@
         "whitespace_after_comma_in_array": true,
         "cast_spaces": true,
         "include": true,
-        "single_quote": true,
+        "single_quote": false,
         "space_after_semicolon": true,
         "standardize_not_equals": true,
         "trailing_comma_in_multiline": true,

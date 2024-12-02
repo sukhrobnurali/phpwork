@@ -2,15 +2,17 @@
 
 namespace App\MoonShine\Resources;
 
-use App\Models\Category;
 use App\Models\Company;
-use Illuminate\Database\Eloquent\Model;
-use MoonShine\Components\MoonShineComponent;
+use App\Models\Category;
+use MoonShine\Fields\Url;
+use MoonShine\Fields\Text;
+use MoonShine\Fields\Field;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Select;
-use MoonShine\Fields\Text;
-use MoonShine\Fields\Url;
+use Illuminate\Support\Facades\App;
 use MoonShine\Resources\ModelResource;
+use Illuminate\Database\Eloquent\Model;
+use MoonShine\Components\MoonShineComponent;
 
 /**
  * @extends ModelResource<Company>
@@ -25,6 +27,8 @@ class CompanyResource extends ModelResource
      */
     public function fields(): array
     {
+        $locale = App::currentLocale();
+
         return [
             Text::make('Name', 'name')
                 ->required(),
@@ -33,7 +37,9 @@ class CompanyResource extends ModelResource
                 ->required(),
 
             Select::make('category_id')
-                ->options(Category::pluck('name', 'id')->toArray()),
+                ->options(Category::query()
+                    ->select(["translates->{$locale} as name", 'id'])
+                    ->pluck('name', 'id')->toArray()),
             Url::make('Website URL', 'website_url')
                 ->nullable(),
 
@@ -46,7 +52,7 @@ class CompanyResource extends ModelResource
             Select::make('Status', 'status')
                 ->options([
                     'active' => 'Active',
-                    'inactive' => 'Inactive'
+                    'inactive' => 'Inactive',
                 ]),
         ];
     }
@@ -58,9 +64,8 @@ class CompanyResource extends ModelResource
     }
 
     /**
-     * @param Model $item
-     *
      * @return array<string, string[]|string>
+     *
      * @see https://laravel.com/docs/validation#available-validation-rules
      */
     public function rules(Model $item): array

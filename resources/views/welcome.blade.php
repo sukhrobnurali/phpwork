@@ -93,7 +93,7 @@
                                             required>
                                         <option value="" disabled selected>Kategoriyani tanlang</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ $category->translates['uz'] }}</option>
                                         @endforeach
                                     </select>
                                 @endif
