@@ -17,6 +17,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 
+    @livewireStyles
+    @livewireScripts
 </head>
 <body class="">
 
@@ -230,68 +232,7 @@
 
 
 <section>
-    <div class="container mx-auto max-w-7xl py-8 px-3">
-        <h2 class="text-2xl font-bold mb-6 text-center">Korxonalar</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            @php
-                $sampleCompanies = ["Bellissimo", "Asakabank", "Technocorp"];
-                $logos = ["as.png", "b.png", "c.jpg"];
-            @endphp
-
-            @foreach(range(1,10) as $company)
-                <div class="max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition">
-                    <div class="flex gap-3">
-                        <img src="/assets/img/{{ \Illuminate\Support\Arr::random($logos) }}" alt="" class="h-20 object-cover mb-4 rounded-md">
-                        <div>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                    {{ \Illuminate\Support\Arr::random($sampleCompanies) }}
-                                </h5>
-                            </a>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-3 py-1 rounded">Bank</span>
-                        </div>
-
-                    </div>
-                    {{--<p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process
-                        on how to certify for your weekly benefits:
-                    </p>--}}
-                    <hr class="my-2">
-                    <div class="flex gap-2 items-start">
-                        <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                            Vebsayt
-                            <svg class="w-[20px] h-[20px]" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                 viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/>
-                            </svg>
-                        </a>
-                        <a href="">
-                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                            <img class="w-6" src="/assets/img/hh.svg" alt="" style="filter: grayscale(100%);">
-                        </span>
-                        </a>
-                        <a href="">
-                        <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                            <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                              <path fill-rule="evenodd"
-                                    d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                    clip-rule="evenodd"/>
-                              <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
-                            </svg>
-                        </span>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-
-
-        </div>
-    </div>
+    @livewire('company-list')
 </section>
 
 
