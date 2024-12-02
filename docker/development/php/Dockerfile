@@ -53,8 +53,6 @@ WORKDIR /var/www
 
 USER $user
 
-# Install npm dependencies
-RUN npm install
 
 ## Start PHP FPM
 #CMD ["php-fpm"]

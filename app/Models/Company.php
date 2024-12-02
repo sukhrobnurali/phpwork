@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Company extends Model
 {
     protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'logo',
+        'category_id',
+        'website_url',
+        'hh_url',
+        'linkedin_url',
+        'status',
+    ];
 
     public function category(): BelongsTo
     {
