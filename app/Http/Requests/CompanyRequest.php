@@ -11,7 +11,7 @@ class CompanyRequest extends FormRequest
         return true;
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|string|max:255',
@@ -20,6 +20,17 @@ class CompanyRequest extends FormRequest
             'website_url' => 'nullable|url',
             'hh_url' => 'nullable|url',
             'linkedin_url' => 'nullable|url',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Kompaniya nomi majburiy.',
+            'category_id.required' => 'Kategoriya tanlanishi shart.',
+            'category_id.exists' => 'Tanlangan kategoriya mavjud emas.',
+            'logo.mimes' => 'Logotip faqat JPG, JPEG, PNG yoki SVG formatida bo‘lishi kerak.',
+            'logo.max' => 'Logotip fayli hajmi 2MB dan oshmasligi kerak.',
         ];
     }
 }
