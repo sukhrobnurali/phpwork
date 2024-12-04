@@ -2,7 +2,6 @@
 
 **phpwork.uz** — PHP dasturlash tili bo'yicha ish o'rinlarini topish uchun platforma. Bu saytda PHP dasturchilari uchun turli vakansiyalar, ish joylari va freelans imkoniyatlari mavjud. Biz PHP bo'yicha tajribali va yangi boshlovchi dasturchilarni ishga joylashtirishga yordam beramiz.
 
-<<<<<<< HEAD
 ## Loyihaning maqsadi
 
 phpwork.uz — PHP dasturlash tili bo'yicha ish o'rinlarini topishga yordam beruvchi onlayn platformadir. Sayt foydalanuvchilari PHP dasturchilari uchun vakansiyalarni qidirish va ariza berish imkoniyatiga ega. Loyihaning maqsadi PHP dasturchilarini ish bilan ta'minlash va ish beruvchilarni malakali mutaxassislar bilan bog'lashdir.
@@ -76,4 +75,3 @@ phpstan va Laravel pint ni zapusk qilish uchun
 phpstan va Laravel pint ni zapusk qilish uchun
  - composer cs-fix
  - composer larastan
->>>>>>> a97f15daf293c6625bc409749cf784fa9404cddb
