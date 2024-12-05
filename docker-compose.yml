@@ -15,6 +15,17 @@ services:
         networks:
             - phpwork_core
 
+    mariadb:
+        image: mariadb:10.6.5
+        container_name: mariadb-phpwork-backend
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123
+        volumes:
+            - ./mariadb:/var/lib/mysql
+        networks:
+            - phpwork_core
 
     nginx:
         image: nginx:alpine
