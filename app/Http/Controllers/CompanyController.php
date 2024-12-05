@@ -19,7 +19,7 @@ class CompanyController extends Controller
         return redirect()->back()->with('success', "Korxona qo’shish so’rovingiz muvaffaqiyatli qabul qilindi!");
     }
 
-    private function uploadLogo(Request $request): ?string
+    private function uploadLogo(Request $request): string
     {
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
