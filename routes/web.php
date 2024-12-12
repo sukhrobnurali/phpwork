@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LayoutController;
+use Illuminate\Support\Facades\Route;
 
 Route::post('/companies/request', [CompanyController::class, 'companyRequests'])->name('companies.request');
 
-Route::get('/', [LayoutController::class, 'welcome']);
+Route::get('/', [LayoutController::class,'welcome'])->name('home');
+Route::get('/contributors',[LayoutController::class,'contributors'])->name('contributors');
