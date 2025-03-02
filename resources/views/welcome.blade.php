@@ -595,11 +595,11 @@
 </script>
 
 @if ($errors->any())
+    @foreach ($errors->all() as $error)
     <script>
-        @foreach ($errors->all() as $error)
         toastr.error("{{ $error }}");
-        @endforeach
     </script>
+    @endforeach
 @endif
 
 @if (session('success'))
